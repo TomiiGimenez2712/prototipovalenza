@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html class="light scroll-smooth" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>VALENZA Boutique | Tienda Online Oficial Corrientes</title>
+  
+  <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"/>
+  
+  <!-- Material Symbols Outlined -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CSS CDN con Forms -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  
+  <!-- Configuración de Tokens de warm_editorial_boutique / DESIGN.md -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#fff8f6",
+            "surface-dim": "#edd5ca",
+            "surface-bright": "#fff8f6",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#fff1eb",
+            "surface-container": "#ffeae0",
+            "surface-container-high": "#fce3d8",
+            "surface-container-highest": "#f6ded2",
+            "on-surface": "#251912",
+            "on-surface-variant": "#50443f",
+            "inverse-surface": "#3c2d26",
+            "inverse-on-surface": "#ffede5",
+            "outline": "#82746e",
+            "outline-variant": "#d4c3bc",
+            "surface-tint": "#785746",
+            "primary": "#43281a",
+            "on-primary": "#ffffff",
+            "primary-container": "#5c3e2e",
+            "on-primary-container": "#d3aa95",
+            "inverse-primary": "#e9bda8",
+            "secondary": "#635e57",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#e9e1d8",
+            "on-secondary-container": "#69645d",
+            "tertiary": "#3f2a1f",
+            "on-tertiary": "#ffffff",
+            "tertiary-container": "#584034",
+            "on-tertiary-container": "#cdac9c",
+            "error": "#ba1a1a",
+            "background": "#fff8f6",
+            "on-background": "#251912",
+            "surface-variant": "#f6ded2"
+          },
+          fontFamily: {
+            "display": ["Playfair Display", "serif"],
+            "headline": ["Playfair Display", "serif"],
+            "body": ["Plus Jakarta Sans", "sans-serif"],
+            "label": ["Plus Jakarta Sans", "sans-serif"],
+            "price": ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    ::selection {
+      background-color: #5c3e2e;
+      color: #ffffff;
+    }
+    .aspect-3-4 {
+      aspect-ratio: 3 / 4;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      background: #5c3e2e;
+      height: 16px;
+      width: 16px;
+      border-radius: 9999px;
+      cursor: pointer;
+      -webkit-appearance: none;
+      margin-top: -6px;
+    }
+    input[type=range]::-webkit-slider-runnable-track {
+      background: #e9e1d8;
+      height: 4px;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased font-body min-h-screen flex flex-col overflow-x-hidden selection:bg-primary-container selection:text-white">
+
+  <!-- =============================================================== -->
+  <!-- 1. TOP BAR DE ANUNCIOS (Estándar WooCommerce)                  -->
+  <!-- =============================================================== -->
+  <aside class="w-full bg-primary-container text-surface py-2 px-3 text-center border-b border-tertiary-container z-40">
+    <div class="max-w-7xl mx-auto flex items-center justify-center gap-2">
+      <span class="material-symbols-outlined text-[14px] hidden md:inline">local_shipping</span>
+      <p class="text-[10px] md:text-[11px] uppercase tracking-widest text-surface-container-low font-medium truncate">
+        Envíos a todo el país | Retiro sin cargo en local Junín 1240, Corrientes
+      </p>
+    </div>
+  </aside>
+
+  <!-- =============================================================== -->
+  <!-- 2. HEADER ESTÁNDAR WOOCOMMERCE                                  -->
+  <!-- =============================================================== -->
+  <header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b border-outline-variant/80 shadow-xs">
+    <div class="w-full max-w-7xl mx-auto px-4 md:px-10 flex justify-between items-center h-16 md:h-20">
+      
+      <!-- Izquierda: Botón Hamburguesa (Móvil) / Menú Links (Desktop) -->
+      <div class="flex items-center">
+        <button onclick="toggleMobileMenu(true)" aria-label="Abrir Menú" class="p-1.5 -ml-1.5 text-primary hover:text-primary-container md:hidden">
+          <span class="material-symbols-outlined text-[26px]">menu</span>
+        </button>
+
+        <nav aria-label="Navegación principal" class="hidden md:flex items-center gap-7">
+          <button onclick="switchView('home')" id="nav-desktop-home" class="text-xs uppercase tracking-widest text-primary border-b border-primary pb-1 font-semibold">
+            Inicio
+          </button>
+          <button onclick="switchView('shop')" id="nav-desktop-shop" class="text-xs uppercase tracking-widest text-secondary hover:text-primary pb-1 transition-colors">
+            Tienda
+          </button>
+          <button onclick="goToSection('temporada')" class="text-xs uppercase tracking-widest text-secondary hover:text-primary pb-1 transition-colors">
+            Nueva Temporada
+          </button>
+          <button onclick="goToSection('contacto')" class="text-xs uppercase tracking-widest text-secondary hover:text-primary pb-1 transition-colors">
+            Contacto
+          </button>
+        </nav>
+      </div>
+
+      <!-- Centro: Identidad de Marca / Logo -->
+      <a href="javascript:void(0)" onclick="switchView('home')" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 md:w-11 md:h-11 rounded-full overflow-hidden border border-outline-variant shrink-0 hidden sm:block">
+          <img alt="VALENZA Boutique Logo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnWuIDnYU-ZNxkmn0sHrnV342aU94X03uLB3b784K20a9svzWcmgyt-wTMYw0lHYQU4csbOR57imsKU2UQvhn30Iis9_GTvqaugQfFXd30yuEvaeleaMgHOsbyhQB-iJ5YmDIM4L77Y8jp5-nbdWo6swlQ5Q8FlTlyfwM7sZ1wxRcU3cyZavhFeC1o1IkomanFYchGdOkWt8_X7HY21r5eL_6k-G9QbnCMT3bQ9gl9F1xzHbQyj9-UGKSdo6xMzDGyCw"/>
+        </div>
+        <span class="font-headline text-xl md:text-[26px] uppercase tracking-widest text-primary font-medium">
+          VALENZA
+        </span>
+      </a>
+
+      <!-- Derecha: Iconos nativos WooCommerce -->
+      <div class="flex items-center gap-2 md:gap-4 text-primary">
+        <button onclick="focusSearch()" aria-label="Buscar" class="p-1 hover:text-primary-container transition-colors">
+          <span class="material-symbols-outlined text-[22px]">search</span>
+        </button>
+        <button onclick="showToast('Acceso a Mi Cuenta (WooCommerce)')" aria-label="Mi Cuenta" class="hidden md:flex p-1 hover:text-primary-container transition-colors">
+          <span class="material-symbols-outlined text-[22px]">person</span>
+        </button>
+        <button onclick="toggleCartDrawer(true)" aria-label="Carrito de compras" class="relative p-1 hover:text-primary-container transition-colors">
+          <span class="material-symbols-outlined text-[23px]">shopping_bag</span>
+          <span id="cart-badge" class="absolute -top-0.5 -right-1 bg-primary-container text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+            2
+          </span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Sub-barra de navegación rápida móvil (Fiel al prototipo Mobile de Stitch) -->
+    <div class="flex md:hidden items-center justify-around px-3 py-2 border-t border-outline-variant/40 bg-surface-bright overflow-x-auto no-scrollbar text-[11px] uppercase tracking-wider font-semibold">
+      <button onclick="switchView('home')" id="nav-mob-home" class="text-primary border-b border-primary pb-0.5 whitespace-nowrap">
+        Inicio
+      </button>
+      <button onclick="switchView('shop')" id="nav-mob-shop" class="text-secondary hover:text-primary pb-0.5 whitespace-nowrap">
+        Tienda
+      </button>
+      <button onclick="goToSection('temporada')" class="text-secondary hover:text-primary pb-0.5 whitespace-nowrap">
+        Temporada
+      </button>
+      <button onclick="goToSection('contacto')" class="text-secondary hover:text-primary pb-0.5 whitespace-nowrap">
+        Contacto
+      </button>
+    </div>
+  </header>
+
+  <!-- =============================================================== -->
+  <!-- VISTA 1: INICIO / HOME (Bloques Gutenberg + WooCommerce)        -->
+  <!-- =============================================================== -->
+  <main id="view-home" class="flex-1">
+    
+    <!-- 1. HERO BANNER (Cover Block de WordPress) -->
+    <section class="relative w-full aspect-[4/5] md:aspect-auto md:h-[80vh] md:min-h-[540px] max-h-[720px] bg-primary flex items-end md:items-center justify-center overflow-hidden">
+      <img alt="Nueva Colección VALENZA" class="absolute inset-0 w-full h-full object-cover object-top filter brightness-[0.86]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFA_9qY9ThlEUvYs0pwjkp4skFo-_mjZ690MF5UnioZS8meLl0JVS8_wWgqKdTFn_wz7G4V_eZqrQVTs3PZxOpJcb4pJtJXR6900Sb8Z-ushVIX3dDlH1eG1SOZdpqxkYWrV-9I8OLkncQrEopOJsmEtN65j5sc3a-8X2SCrOt_6M4-Tkd2kQNzSnTow0Z1L4cH1nTXKuy6TrSljURq_VNaNl3z4W9hk20K2b65lqiQSIT-Cbs6EsDdrJ9IdhROWk07A"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/35 to-transparent md:bg-black/35"></div>
+
+      <div class="relative z-10 w-full max-w-3xl mx-auto p-6 pb-8 md:p-8 text-center text-white flex flex-col items-center">
+        <span class="text-[10px] md:text-xs uppercase tracking-[0.2em] text-surface-container-high mb-2 md:mb-4 bg-primary-container/80 px-3 py-1 border border-white/20">
+          Edición Otoño / Invierno 2024
+        </span>
+        <h1 class="font-display text-[28px] md:text-[52px] text-white font-normal mb-2 md:mb-5 leading-tight tracking-wide">
+          NUEVA COLECCIÓN
+        </h1>
+        <p class="text-xs md:text-lg text-surface-container-high max-w-xl mb-5 md:mb-8 font-light leading-relaxed">
+          Prendas sastreras, brillo sutil y elegancia atemporal para cada momento.
+        </p>
+        <button onclick="switchView('shop')" class="w-full md:w-auto bg-primary-container hover:bg-tertiary-container text-white text-xs uppercase tracking-[0.14em] px-8 py-3.5 transition-colors shadow-md font-semibold">
+          Comprar Ahora
+        </button>
+      </div>
+    </section>
+
+    <!-- 2. CATEGORÍAS DESTACADAS (Móvil 3 cols compactas / Desktop 3 cols editoriales) -->
+    <section class="py-8 md:py-20 max-w-7xl mx-auto px-4 md:px-10 border-b md:border-b-0 border-outline-variant/40">
+      
+      <!-- Encabezado de sección -->
+      <div class="flex items-end justify-between md:block md:text-center max-w-2xl mx-auto mb-5 md:mb-12">
+        <div>
+          <span class="text-[10px] md:text-xs uppercase tracking-widest text-primary-container font-semibold">Explorá Por Línea</span>
+          <h2 class="font-headline text-xl md:text-4xl text-primary mt-0.5 md:mt-2">Categorías Destacadas</h2>
+        </div>
+        <span class="text-[10px] text-secondary uppercase tracking-wider md:hidden">3 Colecciones</span>
+        <div class="hidden md:block w-12 h-0.5 bg-primary-container mx-auto mt-3"></div>
+      </div>
+
+      <!-- Diseño Móvil (3 columnas compactas igual al prototipo mobile de Stitch) -->
+      <div class="grid grid-cols-3 gap-2.5 md:hidden">
+        <div onclick="filterByCategory('Sastrería')" class="group flex flex-col items-center cursor-pointer">
+          <div class="w-full aspect-3-4 relative overflow-hidden bg-secondary-container mb-1.5 border border-outline-variant/60">
+            <img alt="Sastrería" class="w-full h-full object-cover object-top" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZbuEliNH4DbDcdhQfEodDmHvIf32x8K7B55ynGKTQwRZlZaaTyCID1EAVUHDr93KyFjehlRLj-OOY3dVhJtod3c3tDdLFf_7_70NiIHhmD3OSLarqFGPRG1QKJc0TdLoiU3dzwCVymIvFS3WeejLpnUb_rauzUTWv7KxDqouNi2tVUnkAyaRZRVh0VTv_1TADmC-4NBcZSesNa_QKCk6xaoUPUIoYTbGS4SSG6r0Pq9a_1HsmuSLCxJuq-zMmXuXBoQ"/>
+          </div>
+          <span class="text-[11px] text-primary font-semibold uppercase tracking-wider text-center">Sastrería</span>
+        </div>
+
+        <div onclick="filterByCategory('Casual')" class="group flex flex-col items-center cursor-pointer">
+          <div class="w-full aspect-3-4 relative overflow-hidden bg-secondary-container mb-1.5 border border-outline-variant/60">
+            <img alt="Casual" class="w-full h-full object-cover object-top" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsLOa9wK2LSO4pB1tnh5p2CbAyfCTlVRdtcwv7kWLLfYBSWUoEsi2FzqDSPLLJUjMAhQXgHZkvcHf7ayS7vvaKt5mX5zdGpyX5ASd-zAzLady6LBzf5fQrW8Hr5DRYIRvC07_kgShQZ-5pAet97mJHzFLfLWPlY71s9V8CrcX_tODMsm0oSAly3hJXyz_6vMQA1g-2olghGmFSProc7lir716e7sVqfHPMJreUHf-77iLOCsVFQ0UDBQvlpqDvCgHBQg"/>
+          </div>
+          <span class="text-[11px] text-primary font-semibold uppercase tracking-wider text-center">Casual</span>
+        </div>
+
+        <div onclick="filterByCategory('Accesorios')" class="group flex flex-col items-center cursor-pointer">
+          <div class="w-full aspect-3-4 relative overflow-hidden bg-secondary-container mb-1.5 border border-outline-variant/60">
+            <img alt="Accesorios" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUCY17NH1gU_vTIfEgkwj9i03lKWSxEwCG5DqHR2L7RCCZ8Y0xUEzBEUPJ6rDG-lBo3Kntjbz6HQ0Ef1xw0_eQ9ZDc2Kyvcthnr2jYGzga-tL_KEtP1zaKEpIpdFoDuqPFeZD44fa0qHjiWjnaOFyIVZwn7aAF6GgSQAlVde0W6vV0lZ7IJkN-oGk-ldAxIgrA3I2xrQNKupaqt2lKEsGfjqjPwite8NqN33_hq9g-0l5IwqQyAIiCF8taxz5LdzhX7Q"/>
+          </div>
+          <span class="text-[11px] text-primary font-semibold uppercase tracking-wider text-center">Accesorios</span>
+        </div>
+      </div>
+
+      <!-- Diseño Desktop (3 tarjetas grandes con recuadro inferior flotante) -->
+      <div class="hidden md:grid md:grid-cols-3 gap-8">
+        <div onclick="filterByCategory('Sastrería')" class="group relative overflow-hidden bg-surface-container-low aspect-3-4 border border-outline-variant shadow-xs cursor-pointer">
+          <img alt="Sastrería & Blazers" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZbuEliNH4DbDcdhQfEodDmHvIf32x8K7B55ynGKTQwRZlZaaTyCID1EAVUHDr93KyFjehlRLj-OOY3dVhJtod3c3tDdLFf_7_70NiIHhmD3OSLarqFGPRG1QKJc0TdLoiU3dzwCVymIvFS3WeejLpnUb_rauzUTWv7KxDqouNi2tVUnkAyaRZRVh0VTv_1TADmC-4NBcZSesNa_QKCk6xaoUPUIoYTbGS4SSG6r0Pq9a_1HsmuSLCxJuq-zMmXuXBoQ"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6 bg-surface-container-lowest/95 p-6 border border-outline-variant text-center transition-transform duration-300 group-hover:-translate-y-1">
+            <h3 class="font-headline text-xl text-primary mb-1">Sastrería &amp; Blazers</h3>
+            <p class="text-xs text-secondary mb-3">Cortes estructurados y caídas impecables</p>
+            <span class="inline-flex items-center text-[11px] uppercase tracking-widest text-primary-container font-semibold">
+              Ver Categoría <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+            </span>
+          </div>
+        </div>
+
+        <div onclick="filterByCategory('Casual')" class="group relative overflow-hidden bg-surface-container-low aspect-3-4 border border-outline-variant shadow-xs cursor-pointer">
+          <img alt="Casual & Jackets" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsLOa9wK2LSO4pB1tnh5p2CbAyfCTlVRdtcwv7kWLLfYBSWUoEsi2FzqDSPLLJUjMAhQXgHZkvcHf7ayS7vvaKt5mX5zdGpyX5ASd-zAzLady6LBzf5fQrW8Hr5DRYIRvC07_kgShQZ-5pAet97mJHzFLfLWPlY71s9V8CrcX_tODMsm0oSAly3hJXyz_6vMQA1g-2olghGmFSProc7lir716e7sVqfHPMJreUHf-77iLOCsVFQ0UDBQvlpqDvCgHBQg"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6 bg-surface-container-lowest/95 p-6 border border-outline-variant text-center transition-transform duration-300 group-hover:-translate-y-1">
+            <h3 class="font-headline text-xl text-primary mb-1">Casual &amp; Jackets</h3>
+            <p class="text-xs text-secondary mb-3">Color vibrante y frescura urbana cotidiana</p>
+            <span class="inline-flex items-center text-[11px] uppercase tracking-widest text-primary-container font-semibold">
+              Ver Categoría <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+            </span>
+          </div>
+        </div>
+
+        <div onclick="filterByCategory('Accesorios')" class="group relative overflow-hidden bg-surface-container-low aspect-3-4 border border-outline-variant shadow-xs cursor-pointer">
+          <img alt="Accesorios & Joyería" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUCY17NH1gU_vTIfEgkwj9i03lKWSxEwCG5DqHR2L7RCCZ8Y0xUEzBEUPJ6rDG-lBo3Kntjbz6HQ0Ef1xw0_eQ9ZDc2Kyvcthnr2jYGzga-tL_KEtP1zaKEpIpdFoDuqPFeZD44fa0qHjiWjnaOFyIVZwn7aAF6GgSQAlVde0W6vV0lZ7IJkN-oGk-ldAxIgrA3I2xrQNKupaqt2lKEsGfjqjPwite8NqN33_hq9g-0l5IwqQyAIiCF8taxz5LdzhX7Q"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6 bg-surface-container-lowest/95 p-6 border border-outline-variant text-center transition-transform duration-300 group-hover:-translate-y-1">
+            <h3 class="font-headline text-xl text-primary mb-1">Accesorios &amp; Joyería</h3>
+            <p class="text-xs text-secondary mb-3">Piezas con presencia dorada y diseño escultórico</p>
+            <span class="inline-flex items-center text-[11px] uppercase tracking-widest text-primary-container font-semibold">
+              Ver Categoría <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 3. GRILLA DE PRODUCTOS DESTACADOS WOOCOMMERCE (2x2 en Móvil / 4 cols en Desktop) -->
+    <section class="py-8 md:py-20 bg-surface-container-low border-b border-outline-variant">
+      <div class="max-w-7xl mx-auto px-4 md:px-10">
+        
+        <div class="flex items-end justify-between mb-5 md:mb-10 md:border-b md:border-outline-variant md:pb-5">
+          <div>
+            <span class="text-[10px] md:text-xs uppercase tracking-widest text-primary-container font-semibold">Boutique Selection</span>
+            <h2 class="font-headline text-xl md:text-4xl text-primary mt-0.5">Prendas Destacadas</h2>
+          </div>
+          <button onclick="switchView('shop')" class="text-[11px] md:text-xs uppercase tracking-wider text-primary border-b border-primary pb-0.5 font-semibold hover:opacity-75">
+            Ver Todo
+          </button>
+        </div>
+
+        <!-- Grilla 2 columnas en Móvil, 4 columnas en Desktop -->
+        <div id="home-featured-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-7">
+          <!-- Renderizado por JS -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. BANNER EDITORIAL / STORYTELLING (Apilado en Móvil / 50-50 en Desktop) -->
+    <section id="temporada" class="p-4 md:p-0 bg-surface md:border-b md:border-outline-variant">
+      <div class="w-full grid grid-cols-1 lg:grid-cols-2 border border-outline-variant/60 md:border-0 overflow-hidden">
+        
+        <div class="relative aspect-[4/3] lg:aspect-auto lg:min-h-[460px] bg-secondary-container overflow-hidden">
+          <img alt="Identidad VALENZA Boutique" class="w-full h-full object-cover object-top" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFA_9qY9ThlEUvYs0pwjkp4skFo-_mjZ690MF5UnioZS8meLl0JVS8_wWgqKdTFn_wz7G4V_eZqrQVTs3PZxOpJcb4pJtJXR6900Sb8Z-ushVIX3dDlH1eG1SOZdpqxkYWrV-9I8OLkncQrEopOJsmEtN65j5sc3a-8X2SCrOt_6M4-Tkd2kQNzSnTow0Z1L4cH1nTXKuy6TrSljURq_VNaNl3z4W9hk20K2b65lqiQSIT-Cbs6EsDdrJ9IdhROWk07A"/>
+        </div>
+
+        <div class="bg-secondary-container p-5 md:p-12 lg:p-20 flex flex-col justify-center items-start">
+          <div class="w-10 h-0.5 bg-primary-container mb-4 hidden md:block"></div>
+          <span class="text-[10px] md:text-xs uppercase tracking-[0.2em] text-primary-container font-semibold mb-1.5">
+            Corrientes, Argentina
+          </span>
+          <h2 class="font-headline text-2xl md:text-4xl text-primary mb-3 md:mb-5">
+            Identidad Valenza
+          </h2>
+          <p class="text-xs md:text-base text-secondary leading-relaxed mb-5 md:mb-8 max-w-xl">
+            Nacida en el corazón de Corrientes, combinamos sofisticación contemporánea con prendas seleccionadas para realzar tu estilo propio con personalidad y distinción.
+          </p>
+          <button onclick="switchView('shop')" class="w-full md:w-auto border border-primary-container bg-primary md:bg-transparent text-white md:text-primary-container hover:bg-primary-container hover:text-white px-7 py-3 text-xs uppercase tracking-widest transition-colors font-semibold text-center">
+            Conocé Nuestra Tienda
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. BENEFICIOS DE COMPRA (Tarjetas limpias en Móvil / 3 Columnas en Desktop) -->
+    <section class="py-8 md:py-16 px-4 md:px-10 bg-surface-container-high/30 md:bg-surface border-t md:border-t-0 border-outline-variant/40">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 md:gap-8 md:divide-x divide-outline-variant">
+          
+          <div class="flex items-start gap-3.5 p-3.5 md:p-0 bg-white/80 md:bg-transparent border border-outline-variant/40 md:border-0">
+            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-surface-container flex items-center justify-center shrink-0 text-primary-container">
+              <span class="material-symbols-outlined text-[20px] md:text-2xl">local_shipping</span>
+            </div>
+            <div>
+              <h4 class="font-headline text-sm md:text-lg text-primary font-semibold md:font-normal mb-0.5">Envíos a Todo el País</h4>
+              <p class="text-xs text-secondary leading-relaxed">
+                Despachos rápidos y retiro sin cargo en nuestro local de Corrientes.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3.5 p-3.5 md:p-0 md:pl-8 bg-white/80 md:bg-transparent border border-outline-variant/40 md:border-0">
+            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-surface-container flex items-center justify-center shrink-0 text-primary-container">
+              <span class="material-symbols-outlined text-[20px] md:text-2xl">credit_card</span>
+            </div>
+            <div>
+              <h4 class="font-headline text-sm md:text-lg text-primary font-semibold md:font-normal mb-0.5">3 y 6 Cuotas Sin Interés</h4>
+              <p class="text-xs text-secondary leading-relaxed">
+                Aceptamos todas las tarjetas bancarias y 10% OFF por transferencia.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3.5 p-3.5 md:p-0 md:pl-8 bg-white/80 md:bg-transparent border border-outline-variant/40 md:border-0">
+            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-surface-container flex items-center justify-center shrink-0 text-primary-container">
+              <span class="material-symbols-outlined text-[20px] md:text-2xl">chat</span>
+            </div>
+            <div>
+              <h4 class="font-headline text-sm md:text-lg text-primary font-semibold md:font-normal mb-0.5">Atención Personalizada</h4>
+              <p class="text-xs text-secondary leading-relaxed">
+                Asesoramiento de talles y pedidos directos por WhatsApp.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =============================================================== -->
+  <!-- VISTA 2: CATÁLOGO / TIENDA WOOCOMMERCE                          -->
+  <!-- =============================================================== -->
+  <main id="view-shop" class="flex-1 hidden">
+    
+    <!-- Píldoras Horizontales de Categoría (Visible en Móvil igual al prototipo Stitch) -->
+    <nav aria-label="Categorías rápidas" class="bg-surface border-b border-outline-variant lg:hidden">
+      <div class="px-4 py-2.5 overflow-x-auto no-scrollbar flex items-center gap-2">
+        <button onclick="filterByCategory('all')" class="cat-pill shrink-0 px-3.5 py-1.5 bg-primary-container text-white text-[11px] tracking-widest uppercase font-semibold" data-cat="all">
+          Todo
+        </button>
+        <button onclick="filterByCategory('Sastrería')" class="cat-pill shrink-0 px-3.5 py-1.5 bg-surface-container-lowest text-secondary border border-outline-variant text-[11px] tracking-widest uppercase font-medium" data-cat="Sastrería">
+          Sastrería
+        </button>
+        <button onclick="filterByCategory('Pantalones')" class="cat-pill shrink-0 px-3.5 py-1.5 bg-surface-container-lowest text-secondary border border-outline-variant text-[11px] tracking-widest uppercase font-medium" data-cat="Pantalones">
+          Pantalones
+        </button>
+        <button onclick="filterByCategory('Casual')" class="cat-pill shrink-0 px-3.5 py-1.5 bg-surface-container-lowest text-secondary border border-outline-variant text-[11px] tracking-widest uppercase font-medium" data-cat="Casual">
+          Casual
+        </button>
+        <button onclick="filterByCategory('Accesorios')" class="cat-pill shrink-0 px-3.5 py-1.5 bg-surface-container-lowest text-secondary border border-outline-variant text-[11px] tracking-widest uppercase font-medium" data-cat="Accesorios">
+          Accesorios
+        </button>
+        <button onclick="filterByCategory('Marroquinería')" class="cat-pill shrink-0 px-3.5 py-1.5 bg-surface-container-lowest text-secondary border border-outline-variant text-[11px] tracking-widest uppercase font-medium" data-cat="Marroquinería">
+          Carteras
+        </button>
+      </div>
+    </nav>
+
+    <!-- Cabecera de Tienda y Breadcrumbs -->
+    <section class="bg-surface-container-low border-b border-outline-variant/60 py-6 md:py-12">
+      <div class="w-full max-w-7xl mx-auto px-4 md:px-10">
+        <nav class="flex items-center gap-2 text-[11px] uppercase tracking-wider text-secondary mb-2">
+          <button onclick="switchView('home')" class="hover:text-primary">Inicio</button>
+          <span>/</span>
+          <span class="text-primary font-semibold">Tienda Online</span>
+        </nav>
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-2">
+          <div>
+            <h1 class="font-headline text-2xl md:text-4xl uppercase tracking-wide text-primary">
+              Catálogo Boutique
+            </h1>
+            <p class="text-xs md:text-sm text-secondary mt-1 max-w-2xl">
+              Colección cápsula de temporada — Edición artesanal Corrientes.
+            </p>
+          </div>
+          <div class="text-[11px] uppercase tracking-wider text-secondary mt-1 md:mt-0">
+            Mostrando <span id="catalog-counter" class="font-bold text-primary">9</span> de <span class="font-bold text-primary">36</span> prendas
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contenedor Principal de Catálogo -->
+    <div class="w-full max-w-7xl mx-auto px-4 md:px-10 py-6 md:py-12">
+      
+      <!-- Barra de Controles WooCommerce (Filtro móvil + Ordenar + Vista 1/2 cols) -->
+      <div class="bg-surface-container-lowest border border-outline-variant p-2.5 md:p-3.5 mb-6 flex items-center justify-between gap-2 shadow-2xs">
+        
+        <!-- Botón Filtrar (Móvil / Tablet) -->
+        <button onclick="toggleMobileFilterDrawer()" class="lg:hidden flex items-center gap-1.5 px-3 py-1.5 border border-outline-variant text-primary text-[11px] uppercase tracking-wider font-semibold">
+          <span class="material-symbols-outlined text-[17px]">tune</span>
+          <span>Filtrar</span>
+        </button>
+
+        <!-- Buscador rápido en barra (Desktop) -->
+        <div class="hidden lg:flex items-center gap-2 text-xs text-secondary">
+          <span>Categoría activa:</span>
+          <strong id="active-cat-label" class="text-primary uppercase tracking-wider">Todas las prendas</strong>
+        </div>
+
+        <!-- Selector Ordenar Por (Nativo WooCommerce) -->
+        <div class="flex items-center gap-2 ml-auto lg:ml-0">
+          <label class="hidden sm:inline text-[11px] uppercase tracking-wider text-secondary" for="woo-sort">Ordenar:</label>
+          <select onchange="sortCatalog(this.value)" id="woo-sort" class="bg-surface border border-outline-variant text-primary text-[11px] py-1.5 pl-2.5 pr-7 focus:ring-0 focus:border-primary-container uppercase cursor-pointer">
+            <option value="default">Más recientes</option>
+            <option value="price-asc">Menor precio</option>
+            <option value="price-desc">Mayor precio</option>
+          </select>
+        </div>
+
+        <!-- Toggle 1 o 2 columnas en Móvil -->
+        <div class="flex md:hidden items-center gap-1 border-l border-outline-variant pl-2">
+          <button onclick="setMobileCols(2)" id="mob-col-2" class="p-1 text-primary" aria-label="2 columnas">
+            <span class="material-symbols-outlined text-[19px]">grid_view</span>
+          </button>
+          <button onclick="setMobileCols(1)" id="mob-col-1" class="p-1 text-secondary" aria-label="1 columna">
+            <span class="material-symbols-outlined text-[19px]">view_agenda</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Cajón Desplegable de Filtros Móvil (Oculto por defecto) -->
+      <div id="mobile-filter-box" class="hidden lg:hidden bg-surface-container-low border border-outline-variant p-4 mb-6 space-y-4">
+        <div class="flex items-center justify-between border-b border-outline-variant pb-2">
+          <span class="font-headline text-sm text-primary uppercase">Filtros de Tienda</span>
+          <button onclick="toggleMobileFilterDrawer()" class="text-primary">
+            <span class="material-symbols-outlined text-lg">close</span>
+          </button>
+        </div>
+        <div>
+          <span class="text-[11px] uppercase tracking-wider text-primary font-semibold block mb-2">Buscar prenda</span>
+          <input oninput="searchCatalog(this.value)" type="text" placeholder="Ej: Blazer, Gafas, Ona Saez..." class="w-full text-xs bg-white border border-outline-variant p-2 focus:border-primary focus:ring-0"/>
+        </div>
+        <div>
+          <span class="text-[11px] uppercase tracking-wider text-primary font-semibold block mb-2">Talle</span>
+          <div class="flex flex-wrap gap-2">
+            <button onclick="filterBySize('XS')" class="size-chip px-3 py-1 text-xs border border-outline-variant bg-white text-primary" data-size="XS">XS</button>
+            <button onclick="filterBySize('S')" class="size-chip px-3 py-1 text-xs border border-outline-variant bg-white text-primary" data-size="S">S</button>
+            <button onclick="filterBySize('M')" class="size-chip px-3 py-1 text-xs border border-outline-variant bg-white text-primary" data-size="M">M</button>
+            <button onclick="filterBySize('L')" class="size-chip px-3 py-1 text-xs border border-outline-variant bg-white text-primary" data-size="L">L</button>
+            <button onclick="filterBySize('XL')" class="size-chip px-3 py-1 text-xs border border-outline-variant bg-white text-primary" data-size="XL">XL</button>
+          </div>
+        </div>
+        <div>
+          <span class="text-[11px] uppercase tracking-wider text-primary font-semibold block mb-1">Precio máximo: <strong id="mob-price-val">$ 100.000</strong></span>
+          <input oninput="filterByPrice(this.value)" type="range" min="28000" max="100000" step="2000" value="100000" class="w-full"/>
+        </div>
+      </div>
+
+      <!-- Layout de 2 Columnas en Desktop (Sidebar WooCommerce + Grilla de Productos) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- SIDEBAR DE WIDGETS WOOCOMMERCE (Solo visible en Desktop lg) -->
+        <aside class="hidden lg:block lg:col-span-3 space-y-7 pr-2">
+          
+          <!-- Widget Buscar -->
+          <div class="border-b border-outline-variant/60 pb-6">
+            <h3 class="font-headline text-base text-primary uppercase tracking-wider mb-3">Buscar</h3>
+            <input id="desktop-search-input" oninput="searchCatalog(this.value)" type="text" placeholder="Buscar producto..." class="w-full bg-white border border-outline-variant text-xs p-2.5 focus:border-primary focus:ring-0"/>
+          </div>
+
+          <!-- Widget Categorías de Producto -->
+          <div class="border-b border-outline-variant/60 pb-6">
+            <h3 class="font-headline text-base text-primary uppercase tracking-wider mb-3">Categorías</h3>
+            <ul class="space-y-2 text-xs">
+              <li>
+                <button onclick="filterByCategory('all')" class="cat-side-btn w-full flex justify-between items-center font-semibold text-primary py-1" data-cat="all">
+                  <span>Todas las prendas</span>
+                  <span class="bg-surface-container-high px-2 py-0.5 text-[10px]">9</span>
+                </button>
+              </li>
+              <li>
+                <button onclick="filterByCategory('Sastrería')" class="cat-side-btn w-full flex justify-between items-center text-secondary hover:text-primary py-1" data-cat="Sastrería">
+                  <span>Sastrería &amp; Blazers</span>
+                  <span class="text-outline text-[11px]">3</span>
+                </button>
+              </li>
+              <li>
+                <button onclick="filterByCategory('Pantalones')" class="cat-side-btn w-full flex justify-between items-center text-secondary hover:text-primary py-1" data-cat="Pantalones">
+                  <span>Pantalones &amp; Denim</span>
+                  <span class="text-outline text-[11px]">1</span>
+                </button>
+              </li>
+              <li>
+                <button onclick="filterByCategory('Casual')" class="cat-side-btn w-full flex justify-between items-center text-secondary hover:text-primary py-1" data-cat="Casual">
+                  <span>Abrigos &amp; Casual</span>
+                  <span class="text-outline text-[11px]">1</span>
+                </button>
+              </li>
+              <li>
+                <button onclick="filterByCategory('Accesorios')" class="cat-side-btn w-full flex justify-between items-center text-secondary hover:text-primary py-1" data-cat="Accesorios">
+                  <span>Accesorios &amp; Gafas</span>
+                  <span class="text-outline text-[11px]">2</span>
+                </button>
+              </li>
+              <li>
+                <button onclick="filterByCategory('Marroquinería')" class="cat-side-btn w-full flex justify-between items-center text-secondary hover:text-primary py-1" data-cat="Marroquinería">
+                  <span>Marroquinería &amp; Bolsos</span>
+                  <span class="text-outline text-[11px]">2</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Widget Filtrar por Precio -->
+          <div class="border-b border-outline-variant/60 pb-6">
+            <h3 class="font-headline text-base text-primary uppercase tracking-wider mb-3">Filtrar por Precio</h3>
+            <input id="desk-price-range" oninput="filterByPrice(this.value)" type="range" min="28000" max="100000" step="2000" value="100000" class="w-full"/>
+            <div class="flex justify-between text-xs text-secondary mt-2">
+              <span>$ 28.000</span>
+              <span>Hasta: <strong id="desk-price-val" class="text-primary">$ 100.000</strong></span>
+            </div>
+          </div>
+
+          <!-- Widget Filtro por Talle -->
+          <div class="border-b border-outline-variant/60 pb-6">
+            <h3 class="font-headline text-base text-primary uppercase tracking-wider mb-3">Talle</h3>
+            <div class="flex flex-wrap gap-2">
+              <button onclick="filterBySize('XS')" class="size-chip w-9 h-9 border border-outline-variant bg-white text-xs text-primary hover:border-primary" data-size="XS">XS</button>
+              <button onclick="filterBySize('S')" class="size-chip w-9 h-9 border border-outline-variant bg-white text-xs text-primary hover:border-primary" data-size="S">S</button>
+              <button onclick="filterBySize('M')" class="size-chip w-9 h-9 border border-outline-variant bg-white text-xs text-primary hover:border-primary" data-size="M">M</button>
+              <button onclick="filterBySize('L')" class="size-chip w-9 h-9 border border-outline-variant bg-white text-xs text-primary hover:border-primary" data-size="L">L</button>
+              <button onclick="filterBySize('XL')" class="size-chip w-9 h-9 border border-outline-variant bg-white text-xs text-primary hover:border-primary" data-size="XL">XL</button>
+            </div>
+          </div>
+
+          <!-- Tarjeta Personal Shopper -->
+          <div class="bg-surface-container p-5 border border-outline-variant">
+            <div class="flex items-center gap-2 text-primary mb-2">
+              <span class="material-symbols-outlined text-[18px]">chat</span>
+              <span class="text-xs uppercase tracking-wider font-bold">Personal Shopper</span>
+            </div>
+            <p class="text-xs text-on-surface-variant leading-relaxed mb-4">
+              ¿Dudas con el calce o combinación de prendas? Te asesoramos desde nuestro local en Junín 1240, Corrientes.
+            </p>
+            <a href="https://wa.me/5493794000000" target="_blank" class="block w-full text-center bg-primary-container text-white text-[11px] uppercase tracking-widest py-2.5 hover:bg-primary transition-colors font-semibold">
+              Consultar por WhatsApp
+            </a>
+          </div>
+
+        </aside>
+
+        <!-- GRILLA DE PRODUCTOS DE CATÁLOGO -->
+        <div class="lg:col-span-9">
+          <div id="catalog-grid" class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
+            <!-- Renderizado por JS -->
+          </div>
+
+          <!-- Paginación Estándar WooCommerce -->
+          <div class="mt-10 pt-6 border-t border-outline-variant/60 flex items-center justify-center gap-2">
+            <span class="w-9 h-9 flex items-center justify-center bg-primary-container text-white text-xs font-semibold">1</span>
+            <button onclick="showToast('Página 2 de demostración')" class="w-9 h-9 flex items-center justify-center bg-white border border-outline-variant text-primary hover:bg-surface-container text-xs">2</button>
+            <button onclick="showToast('Página 3 de demostración')" class="w-9 h-9 flex items-center justify-center bg-white border border-outline-variant text-primary hover:bg-surface-container text-xs">3</button>
+            <button onclick="showToast('Siguiente página')" class="px-3 h-9 flex items-center justify-center bg-white border border-outline-variant text-primary hover:bg-surface-container text-xs uppercase tracking-wider">
+              Siguiente <span class="material-symbols-outlined text-sm ml-1">chevron_right</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- =============================================================== -->
+  <!-- 3. FOOTER ESTÁNDAR WOOCOMMERCE                                  -->
+  <!-- =============================================================== -->
+  <footer id="contacto" class="bg-primary-container text-surface-container-high border-t border-tertiary-container mt-auto">
+    <div class="w-full max-w-7xl mx-auto px-5 md:px-10 py-10 md:py-16">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 text-center md:text-left">
+        
+        <!-- Columna 1: Marca -->
+        <div class="flex flex-col items-center md:items-start">
+          <span class="font-headline text-2xl uppercase tracking-widest text-white mb-2">
+            VALENZA
+          </span>
+          <p class="text-xs text-surface-dim leading-relaxed mb-4 max-w-xs">
+            Boutique de indumentaria femenina contemporánea. Curaduría sastrera, texturas nobles y diseño selecto en Corrientes.
+          </p>
+          <span class="text-xs text-on-primary-container">@valenza.ctes</span>
+        </div>
+
+        <!-- Columna 2: Categorías -->
+        <div class="hidden md:block">
+          <h4 class="font-headline text-base text-white mb-4 uppercase tracking-wider">Categorías</h4>
+          <ul class="space-y-2 text-xs text-on-primary-container">
+            <li><button onclick="filterByCategory('Sastrería')" class="hover:text-white">Sastrería &amp; Blazers</button></li>
+            <li><button onclick="filterByCategory('Pantalones')" class="hover:text-white">Pantalones</button></li>
+            <li><button onclick="filterByCategory('Casual')" class="hover:text-white">Abrigos &amp; Casual</button></li>
+            <li><button onclick="filterByCategory('Accesorios')" class="hover:text-white">Joyería &amp; Gafas</button></li>
+            <li><button onclick="filterByCategory('Marroquinería')" class="hover:text-white">Marroquinería</button></li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: Enlaces Legales -->
+        <div class="py-4 md:py-0 border-y md:border-y-0 border-outline/25">
+          <h4 class="font-headline text-base text-white mb-3 hidden md:block uppercase tracking-wider">Ayuda &amp; Compras</h4>
+          <ul class="space-y-2 text-xs text-on-primary-container">
+            <li><a href="javascript:void(0)" onclick="showToast('Sección Términos y Condiciones')" class="hover:text-white">Términos y Condiciones</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('Cambios sin cargo dentro de los 30 días')" class="hover:text-white">Políticas de Devolución</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('Tabla de medidas estándar')" class="hover:text-white">Guía de Talles</a></li>
+            <li><a href="https://wa.me/5493794000000" target="_blank" class="hover:text-white">Contacto WhatsApp</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 4: Dirección en Corrientes -->
+        <div class="space-y-2 text-xs text-surface-dim">
+          <h4 class="font-headline text-base text-white mb-3 hidden md:block uppercase tracking-wider">Local Corrientes</h4>
+          <p class="text-white font-medium">Junín 1240, Corrientes Capital</p>
+          <p>Lun a Sáb: 09:00 a 13:00 | 17:00 a 21:00 hs</p>
+          <p class="pt-2 text-[11px] text-on-primary-container">Tarjetas en 3 y 6 cuotas, Mercado Pago y Transferencias</p>
+        </div>
+
+      </div>
+
+      <div class="mt-8 pt-6 border-t border-tertiary-container text-center text-[11px] text-on-primary-container">
+        © 2024 VALENZA Boutique. Todos los derechos reservados. Corrientes, Argentina.
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- =============================================================== -->
+  <!-- BOTÓN FLOTANTE DE WHATSAPP (Plugin Joinchat estándar)           -->
+  <!-- =============================================================== -->
+  <a href="https://wa.me/5493794000000" target="_blank" aria-label="WhatsApp" class="fixed bottom-5 right-5 z-40 w-12 h-12 bg-[#25D366] text-white rounded-full shadow-lg flex items-center justify-center hover:scale-105 transition-transform">
+    <span class="material-symbols-outlined text-[26px] filled">chat</span>
+  </a>
+
+  <!-- =============================================================== -->
+  <!-- DRAWERS NATIVOS (MENÚ MÓVIL Y MINI-CART WOOCOMMERCE)            -->
+  <!-- =============================================================== -->
+
+  <!-- MENÚ LATERAL MÓVIL -->
+  <div id="mobile-menu-backdrop" onclick="toggleMobileMenu(false)" class="fixed inset-0 bg-black/50 z-50 hidden"></div>
+  <aside id="mobile-menu-drawer" class="fixed top-0 left-0 h-full w-4/5 max-w-[290px] bg-surface z-50 -translate-x-full transition-transform duration-300 flex flex-col justify-between p-5 border-r border-outline-variant shadow-2xl">
+    <div>
+      <div class="flex items-center justify-between pb-4 border-b border-outline-variant">
+        <span class="font-headline text-lg text-primary tracking-widest uppercase font-semibold">VALENZA</span>
+        <button onclick="toggleMobileMenu(false)" class="p-1 text-primary">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <nav class="flex flex-col space-y-4 pt-6 text-xs uppercase tracking-widest font-semibold">
+        <button onclick="switchView('home'); toggleMobileMenu(false)" class="text-left text-primary py-1">Inicio</button>
+        <button onclick="switchView('shop'); toggleMobileMenu(false)" class="text-left text-primary py-1">Tienda Completa</button>
+        <button onclick="filterByCategory('Sastrería'); toggleMobileMenu(false)" class="text-left text-secondary hover:text-primary py-1">Sastrería &amp; Blazers</button>
+        <button onclick="filterByCategory('Pantalones'); toggleMobileMenu(false)" class="text-left text-secondary hover:text-primary py-1">Pantalones</button>
+        <button onclick="filterByCategory('Accesorios'); toggleMobileMenu(false)" class="text-left text-secondary hover:text-primary py-1">Accesorios &amp; Gafas</button>
+        <button onclick="filterByCategory('Marroquinería'); toggleMobileMenu(false)" class="text-left text-secondary hover:text-primary py-1">Carteras Ona Saez</button>
+      </nav>
+    </div>
+    <div class="pt-4 border-t border-outline-variant text-xs text-secondary">
+      <p class="font-semibold text-primary">Junín 1240, Corrientes</p>
+      <p class="mt-1">Envíos a todo el país</p>
+    </div>
+  </aside>
+
+  <!-- MINI-CART DRAWER LATERAL WOOCOMMERCE -->
+  <div id="cart-backdrop" onclick="toggleCartDrawer(false)" class="fixed inset-0 bg-black/50 z-50 hidden"></div>
+  <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-[360px] bg-surface z-50 translate-x-full transition-transform duration-300 flex flex-col border-l border-outline-variant shadow-2xl">
+    <div class="p-4 border-b border-outline-variant flex items-center justify-between bg-white">
+      <span class="font-headline text-base text-primary uppercase tracking-wider">Carrito de Compras</span>
+      <button onclick="toggleCartDrawer(false)" class="p-1 text-secondary hover:text-primary">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <div id="cart-items-list" class="flex-1 overflow-y-auto p-4 space-y-4 divide-y divide-outline-variant/50">
+      <!-- Renderizado por JS -->
+    </div>
+
+    <div class="p-4 border-t border-outline-variant bg-surface-container-low space-y-3">
+      <div class="flex justify-between items-center text-sm">
+        <span class="text-secondary font-medium">Subtotal:</span>
+        <strong id="cart-total-price" class="text-primary text-base font-bold">$ 154.400</strong>
+      </div>
+      <p class="text-[11px] text-secondary">Envío calculado en el checkout o retiro gratis en local Junín 1240.</p>
+      <button onclick="checkoutOrder()" class="w-full bg-primary-container hover:bg-primary text-white py-3 text-xs uppercase tracking-widest font-semibold transition-colors">
+        Finalizar Compra
+      </button>
+    </div>
+  </aside>
+
+  <!-- TOAST DE NOTIFICACIÓN -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-2.5 shadow-xl text-xs uppercase tracking-wider font-medium flex items-center gap-2 opacity-0 pointer-events-none transition-opacity duration-200 z-50 whitespace-nowrap border border-white/15">
+    <span class="material-symbols-outlined text-sm text-emerald-400">check_circle</span>
+    <span id="toast-text">Producto añadido</span>
+  </div>
+
+  <!-- =============================================================== -->
+  <!-- LÓGICA JAVASCRIPT                                               -->
+  <!-- =============================================================== -->
+  <script>
+    const PRODUCTS = [
+      {
+        id: 1,
+        title: "Blazer Lentejuelas & Pantalón",
+        category: "Sastrería",
+        price: 89900,
+        installments: "3 cuotas sin interés de $ 29.966",
+        badge: "Exclusivo",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC02unismGWN7soqWqSW9B7xokyM9FILonphUEHRHze5jW01qMfa856a2ZW2-9ewNZAoWu-Oh3NP6ml8EwlXqkgEPg-JCHybyLK_lM1gJ7NKGSFR1QSUuLr3c_l37OSt0h9uMLEgYOKGtAY0E3tmvcFp2Mhe3L-4JYM-vGMuWsaJ8yrxWVqd7fltT5LbIpcRewep5v1amOPbkpCLR6saBsJyVM7cvY-5BLF9QJywCkaHBlENOYwZLHQ",
+        sizes: ["XS", "S", "M", "L"],
+        featured: true
+      },
+      {
+        id: 2,
+        title: "Pantalón Reptil Olive",
+        category: "Pantalones",
+        price: 64500,
+        installments: "3 cuotas sin interés de $ 21.500",
+        badge: "Nuevo",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA8DBUNPaAz3bCsAsCYlA-FPi5g4-Mqy-JE4G3-S4EV7QabHW8A72ivJgP0CZvfe5rS6tNevoQFn3m0Ar_Ru9LOp5XJSrCmYugUaJqfCpSqvehHaBcYzdqQ7h_ogyczrX_w2p8mXZm8rL_zb7bRhEhAlXzgJJZfoakPyewpZJ30ZKratq4JT8dsXpdMrqtePj5MJWXgFIOa7cJOyV3K67RYopJh70vH6ioigr8n4eTNWOgQqUdW67iq",
+        sizes: ["S", "M", "L"],
+        featured: true
+      },
+      {
+        id: 3,
+        title: "Gafas Ricardo Rocha Premium",
+        category: "Accesorios",
+        price: 42000,
+        installments: "3 cuotas sin interés de $ 14.000",
+        badge: "Tendencia",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAtu6id4WXkfHX7z6AU5auYNEvUxvwmxnN6ZNuzWAyAYnWCQmubl5c_U_EWU2wNbm3jzjaqzQoMOeYqKOCRQ1rGH1vcHjNUfgR54GQMfyCusBhf8ESOM1P551h0ubId-7Tz9PLDyOZ9tRNGIvACuERNX_IWkFtCb-HrbYNjelBlE-bni1Dq7vHgmq09eBizIOO7Mzr4mJ6_NYvelmLMpRoib8nKUX-XATNoCFCyLXApQWrsXEJ5QiKc",
+        sizes: ["Único"],
+        featured: true
+      },
+      {
+        id: 4,
+        title: "Billeteras Cuero Ona Saez",
+        category: "Marroquinería",
+        price: 28500,
+        installments: "3 cuotas sin interés de $ 9.500",
+        badge: "Ona Saez",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB3uAsDcwsNljSfiPP_-wkeTTtOJwCr7s3Q3gRwOmMRSCTwkd6_jYMaY4qT77fJgbooyIBqXKahdSlmL_DwACX3fmVfAKR-YIRDAroIRXHqRwXozGDVj3FNCI7gh_xhq1eCDbqU3aqYCH1Kp6zUyouFSX97eWUthF0iRGuxJ3cYNokcRB6vcLKWN50MrKSoiuEHEKOYwqHzP1Fpn69elY6IJDHnGGkiga2W23FfmbnVoZ_jtmfSTs_d",
+        sizes: ["Único"],
+        featured: true
+      },
+      {
+        id: 5,
+        title: "Sastrería Grey Chic & Mini Bag",
+        category: "Sastrería",
+        price: 85000,
+        installments: "3 cuotas sin interés de $ 28.333",
+        badge: "Bestseller",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA1Mj-WtxieiM8Urug7ur97VdvdA18iJUnkM4-3cWyUOp-BmetzKIwO_A-aoMJ_sx31kbpDlT894GWCmipYZybfAqBOrwsj4mfdFTEv5xSswj_8vKcqfvZr3-_GGFu2MT7t8cYiO-JL25b0QnrJo_rGbmNQP4TsUUuGf1khhF9XyGmW9ecZ4HPMRkF7dPuti_amn4fSLl5ehORP5fJUlq7u0onSuA2ukDZeLc2oXh3WLv6ZhGkGbwYjWgVQ-gpIGjB8Tw",
+        sizes: ["S", "M", "L", "XL"],
+        featured: false
+      },
+      {
+        id: 6,
+        title: "Camperón Casual Scarlet Bomber",
+        category: "Casual",
+        price: 59900,
+        installments: "3 cuotas sin interés de $ 19.966",
+        badge: "Últimos talles",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuClx-RLd4noLNoKSP_EWh0osriogcoZNnHoILL9_TlW_PPgAMuItm2JXX3X0MYoBSnvKij0nYuagiFBqIo6J7nFJYFoPLxQ5PP-zgEHVm013ALE7LUAkhuudN8XmQv9kppFe9EsX8naDVzh3MAPMlf_l8oOsZDbCRvqdYMpIlA79lIU-idRruzZX8QOIfVSmkfrmZDFJfOqdRskOuswC43qObTwXhQKFH5bZgbQBEwzxtv_jxkNBBuISaCeBHRqKzIMbQ",
+        sizes: ["M", "L"],
+        featured: false
+      },
+      {
+        id: 7,
+        title: "Maxi Collar Gold & Brazalete",
+        category: "Accesorios",
+        price: 36000,
+        installments: "3 cuotas sin interés de $ 12.000",
+        badge: "Exclusivo",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC46M9NDzw0WCDpJDa5lf89r744XY4NrzchttemcCQWxpMoz8UAuC_IwSBqWQUff8OMJJ0zgfdXb7d9fWhF1Sa1FEmkWsU282y8cBRStEQ8XaT8h_dUDgCShNVBtTVJblPjcdD_H72XqCjB0Tq49EadCzFfPsoDE5kaO4UH67IfCPKcCOgOEN0nAaI8LjjzGRrWY930nXGsQ8f3ad0UgDVIRPT228d1jF0hh6O_KPqBewN_MCg-o-I5",
+        sizes: ["Único"],
+        featured: false
+      },
+      {
+        id: 8,
+        title: "Bandolera Cadena Ona Saez",
+        category: "Marroquinería",
+        price: 48000,
+        installments: "3 cuotas sin interés de $ 16.000",
+        badge: "Favorito",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBoCmy-mUnPxr3YCUCa1hl_4I_qsIZ56p8xyL6ePArwG2gMAi2bTlgUCf_pclqTfDc9CvTzfHxkUawPDdtIoPXnRc1fDZdHGmGSuwVqy3ptomWflipS0vKuwhMLTHRC4Z5SlmajAHSCbMd-tFsVGKqRrGWTvr2lnRBjo904lSPN7c8_WVqfB9xC7_iZ1U5GeMJtEblfLtyirb28nt_b_7qSgK5I5JIzbFJppPyhze2wIOnn3l4rYlwEIvYW8BnGrIWZlw",
+        sizes: ["Único"],
+        featured: false
+      },
+      {
+        id: 9,
+        title: "Tapado Noche & Cartera Crimson",
+        category: "Sastrería",
+        price: 94000,
+        installments: "3 cuotas sin interés de $ 31.333",
+        badge: "Premium",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDhXBFAqsRv-LAM6AI9bfB50WG41hp43kt4J9YioJm6LflTU65ZwgyltvAdySKdOAjKBTcchuLAHPYdzQmhQxXDXNHd1xP_zxs9pfPeSqBnL7X3m17M-6COVevSMy8LLQcKmNcDEcZ2-JA_IGlRwBQCySiRoHgOuKMwfN3ZfMu7dc6xRDf9opF7ffNbOCZt-ODJ7XS2N_IzcYy4ZTsdEbBDhOMZhox15Jyev9_QV2t_pNOM4mJhLUsE04CTClBLBhlBjw",
+        sizes: ["S", "M", "L"],
+        featured: false
+      }
+    ];
+
+    let activeCategory = 'all';
+    let maxPrice = 100000;
+    let activeSize = null;
+    let searchText = '';
+    let sortMode = 'default';
+    let cart = [
+      { id: 1, qty: 1 },
+      { id: 2, qty: 1 }
+    ];
+
+    // TARJETA DE PRODUCTO WOOCOMMERCE
+    function createProductCardHTML(p) {
+      return `
+        <article class="bg-surface-container-lowest border border-outline-variant/80 flex flex-col justify-between group overflow-hidden">
+          <div class="relative w-full aspect-3-4 overflow-hidden bg-surface-container">
+            <img alt="${p.title}" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" src="${p.image}"/>
+            <span class="absolute top-2 left-2 bg-surface-container-lowest/90 px-2 py-0.5 text-[9px] md:text-[10px] uppercase tracking-widest text-primary font-semibold border border-outline-variant/50">
+              ${p.badge}
+            </span>
+            <button onclick="toggleLike(this)" aria-label="Favorito" class="absolute top-2 right-2 w-7 h-7 md:w-8 md:h-8 rounded-full bg-white/85 flex items-center justify-center text-primary hover:text-error transition-colors">
+              <span class="material-symbols-outlined text-[16px] md:text-[18px]">favorite</span>
+            </button>
+          </div>
+          <div class="p-3 md:p-4 flex flex-col flex-1 justify-between">
+            <div>
+              <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-secondary block mb-0.5">
+                ${p.category}
+              </span>
+              <h3 class="font-headline text-[14px] md:text-[17px] leading-snug text-primary line-clamp-1 font-medium">
+                ${p.title}
+              </h3>
+              <div class="mt-1.5 md:mt-2">
+                <span class="text-[14px] md:text-[16px] text-primary font-bold block">$ ${p.price.toLocaleString('es-AR')}</span>
+                <span class="text-[10px] md:text-[11px] text-secondary line-clamp-1 mt-0.5">${p.installments}</span>
+              </div>
+            </div>
+            <button onclick="addToCart(${p.id}, this)" class="mt-3 w-full bg-primary-container hover:bg-primary text-white py-2 md:py-2.5 px-2 text-[10px] md:text-xs uppercase tracking-wider font-semibold flex items-center justify-center gap-1 transition-colors">
+              <span class="material-symbols-outlined text-[15px]">shopping_bag</span>
+              <span>Añadir<span class="hidden sm:inline"> al carrito</span></span>
+            </button>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderHomeFeatured() {
+      const container = document.getElementById('home-featured-grid');
+      const featured = PRODUCTS.filter(p => p.featured);
+      container.innerHTML = featured.map(createProductCardHTML).join('');
+    }
+
+    function renderCatalog() {
+      const container = document.getElementById('catalog-grid');
+      let list = [...PRODUCTS];
+
+      if (activeCategory !== 'all') {
+        list = list.filter(p => p.category === activeCategory);
+      }
+      list = list.filter(p => p.price <= maxPrice);
+      if (activeSize) {
+        list = list.filter(p => p.sizes.includes(activeSize) || p.sizes.includes('Único'));
+      }
+      if (searchText.trim() !== '') {
+        const q = searchText.toLowerCase();
+        list = list.filter(p => p.title.toLowerCase().includes(q) || p.category.toLowerCase().includes(q));
+      }
+      if (sortMode === 'price-asc') list.sort((a, b) => a.price - b.price);
+      if (sortMode === 'price-desc') list.sort((a, b) => b.price - a.price);
+
+      document.getElementById('catalog-counter').innerText = list.length;
+
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-12 text-center bg-surface-container-low border border-outline-variant p-6">
+            <p class="font-headline text-base text-primary mb-2">No se encontraron prendas con esos filtros</p>
+            <button onclick="resetAllFilters()" class="bg-primary-container text-white px-4 py-2 text-xs uppercase tracking-wider font-semibold">
+              Ver todas las prendas
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = list.map(createProductCardHTML).join('');
+    }
+
+    // CAMBIO ENTRE INICIO Y TIENDA (SPA limpia para GitHub Pages)
+    function switchView(view) {
+      const homeEl = document.getElementById('view-home');
+      const shopEl = document.getElementById('view-shop');
+      const navDeskHome = document.getElementById('nav-desktop-home');
+      const navDeskShop = document.getElementById('nav-desktop-shop');
+      const navMobHome = document.getElementById('nav-mob-home');
+      const navMobShop = document.getElementById('nav-mob-shop');
+
+      if (view === 'home') {
+        homeEl.classList.remove('hidden');
+        shopEl.classList.add('hidden');
+        navDeskHome.className = "text-xs uppercase tracking-widest text-primary border-b border-primary pb-1 font-semibold";
+        navDeskShop.className = "text-xs uppercase tracking-widest text-secondary hover:text-primary pb-1 transition-colors";
+        navMobHome.className = "text-primary border-b border-primary pb-0.5 whitespace-nowrap";
+        navMobShop.className = "text-secondary hover:text-primary pb-0.5 whitespace-nowrap";
+      } else {
+        homeEl.classList.add('hidden');
+        shopEl.classList.remove('hidden');
+        navDeskShop.className = "text-xs uppercase tracking-widest text-primary border-b border-primary pb-1 font-semibold";
+        navDeskHome.className = "text-xs uppercase tracking-widest text-secondary hover:text-primary pb-1 transition-colors";
+        navMobShop.className = "text-primary border-b border-primary pb-0.5 whitespace-nowrap";
+        navMobHome.className = "text-secondary hover:text-primary pb-0.5 whitespace-nowrap";
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // FILTROS DE CATÁLOGO
+    function filterByCategory(cat) {
+      activeCategory = cat;
+      document.getElementById('active-cat-label').innerText = cat === 'all' ? 'Todas las prendas' : cat;
+
+      document.querySelectorAll('.cat-pill').forEach(btn => {
+        if (btn.dataset.cat === cat) {
+          btn.className = "cat-pill shrink-0 px-3.5 py-1.5 bg-primary-container text-white text-[11px] tracking-widest uppercase font-semibold";
+        } else {
+          btn.className = "cat-pill shrink-0 px-3.5 py-1.5 bg-surface-container-lowest text-secondary border border-outline-variant text-[11px] tracking-widest uppercase font-medium";
+        }
+      });
+
+      document.querySelectorAll('.cat-side-btn').forEach(btn => {
+        if (btn.dataset.cat === cat) {
+          btn.classList.add('font-bold', 'text-primary');
+          btn.classList.remove('text-secondary');
+        } else {
+          btn.classList.remove('font-bold', 'text-primary');
+          btn.classList.add('text-secondary');
+        }
+      });
+
+      switchView('shop');
+      renderCatalog();
+    }
+
+    function filterByPrice(val) {
+      maxPrice = parseInt(val);
+      const formatted = '$ ' + maxPrice.toLocaleString('es-AR');
+      document.getElementById('desk-price-val').innerText = formatted;
+      document.getElementById('mob-price-val').innerText = formatted;
+      renderCatalog();
+    }
+
+    function filterBySize(size) {
+      activeSize = (activeSize === size) ? null : size;
+      document.querySelectorAll('.size-chip').forEach(btn => {
+        if (btn.dataset.size === activeSize) {
+          btn.classList.add('bg-primary-container', 'text-white');
+          btn.classList.remove('bg-white', 'text-primary');
+        } else {
+          btn.classList.remove('bg-primary-container', 'text-white');
+          btn.classList.add('bg-white', 'text-primary');
+        }
+      });
+      renderCatalog();
+    }
+
+    function searchCatalog(val) {
+      searchText = val;
+      renderCatalog();
+    }
+
+    function sortCatalog(val) {
+      sortMode = val;
+      renderCatalog();
+    }
+
+    function resetAllFilters() {
+      activeCategory = 'all';
+      maxPrice = 100000;
+      activeSize = null;
+      searchText = '';
+      filterByCategory('all');
+    }
+
+    function setMobileCols(cols) {
+      const grid = document.getElementById('catalog-grid');
+      const b1 = document.getElementById('mob-col-1');
+      const b2 = document.getElementById('mob-col-2');
+      if (cols === 1) {
+        grid.classList.remove('grid-cols-2');
+        grid.classList.add('grid-cols-1');
+        b1.classList.replace('text-secondary', 'text-primary');
+        b2.classList.replace('text-primary', 'text-secondary');
+      } else {
+        grid.classList.remove('grid-cols-1');
+        grid.classList.add('grid-cols-2');
+        b2.classList.replace('text-secondary', 'text-primary');
+        b1.classList.replace('text-primary', 'text-secondary');
+      }
+    }
+
+    function toggleMobileFilterDrawer() {
+      document.getElementById('mobile-filter-box').classList.toggle('hidden');
+    }
+
+    function focusSearch() {
+      switchView('shop');
+      if (window.innerWidth < 1024) {
+        document.getElementById('mobile-filter-box').classList.remove('hidden');
+      } else {
+        document.getElementById('desktop-search-input').focus();
+      }
+    }
+
+    // CARRITO DE COMPRAS
+    function addToCart(id, btnEl) {
+      const item = cart.find(i => i.id === id);
+      if (item) item.qty += 1;
+      else cart.push({ id, qty: 1 });
+
+      updateCart();
+      showToast('Prenda añadida al carrito');
+
+      if (btnEl) {
+        const oldHTML = btnEl.innerHTML;
+        btnEl.innerHTML = `<span class="material-symbols-outlined text-[15px]">check</span><span>Añadido</span>`;
+        btnEl.classList.add('bg-primary');
+        setTimeout(() => {
+          btnEl.innerHTML = oldHTML;
+          btnEl.classList.remove('bg-primary');
+        }, 1200);
+      }
+    }
+
+    function removeFromCart(idx) {
+      cart.splice(idx, 1);
+      updateCart();
+    }
+
+    function updateCart() {
+      const count = cart.reduce((acc, i) => acc + i.qty, 0);
+      document.getElementById('cart-badge').innerText = count;
+
+      const listEl = document.getElementById('cart-items-list');
+      let total = 0;
+
+      if (cart.length === 0) {
+        listEl.innerHTML = `<p class="text-xs text-secondary text-center py-10">Tu carrito está vacío.</p>`;
+        document.getElementById('cart-total-price').innerText = '$ 0';
+        return;
+      }
+
+      listEl.innerHTML = cart.map((item, idx) => {
+        const p = PRODUCTS.find(x => x.id === item.id);
+        const sub = p.price * item.qty;
+        total += sub;
+        return `
+          <div class="flex gap-3 pt-3 first:pt-0">
+            <img src="${p.image}" class="w-14 h-18 object-cover border border-outline-variant shrink-0" alt="${p.title}"/>
+            <div class="flex-1">
+              <div class="flex justify-between items-start">
+                <h4 class="font-headline text-xs text-primary font-medium line-clamp-1">${p.title}</h4>
+                <button onclick="removeFromCart(${idx})" class="text-secondary hover:text-error">
+                  <span class="material-symbols-outlined text-sm">close</span>
+                </button>
+              </div>
+              <p class="text-xs text-secondary mt-1">${item.qty} × <strong class="text-primary">$ ${p.price.toLocaleString('es-AR')}</strong></p>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('cart-total-price').innerText = '$ ' + total.toLocaleString('es-AR');
+    }
+
+    function toggleCartDrawer(open) {
+      const drawer = document.getElementById('cart-drawer');
+      const backdrop = document.getElementById('cart-backdrop');
+      if (open) {
+        backdrop.classList.remove('hidden');
+        drawer.classList.remove('translate-x-full');
+      } else {
+        backdrop.classList.add('hidden');
+        drawer.classList.add('translate-x-full');
+      }
+    }
+
+    function toggleMobileMenu(open) {
+      const drawer = document.getElementById('mobile-menu-drawer');
+      const backdrop = document.getElementById('mobile-menu-backdrop');
+      if (open) {
+        backdrop.classList.remove('hidden');
+        drawer.classList.remove('-translate-x-full');
+      } else {
+        backdrop.classList.add('hidden');
+        drawer.classList.add('-translate-x-full');
+      }
+    }
+
+    function checkoutOrder() {
+      if (cart.length === 0) return;
+      let text = "Hola VALENZA! Quiero realizar este pedido de la tienda online:%0A";
+      cart.forEach(item => {
+        const p = PRODUCTS.find(x => x.id === item.id);
+        text += `- ${item.qty}x ${p.title} ($${(p.price * item.qty).toLocaleString('es-AR')})%0A`;
+      });
+      window.open(`https://wa.me/5493794000000?text=${text}`, '_blank');
+    }
+
+    function toggleLike(btn) {
+      const icon = btn.querySelector('.material-symbols-outlined');
+      icon.classList.toggle('filled');
+      icon.classList.toggle('text-error');
+    }
+
+    function goToSection(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    let toastTimer = null;
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      document.getElementById('toast-text').innerText = msg;
+      t.classList.remove('opacity-0');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => t.classList.add('opacity-0'), 2200);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderHomeFeatured();
+      renderCatalog();
+      updateCart();
+    });
+  </script>
+</body>
+</html>
